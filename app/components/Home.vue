@@ -1,7 +1,7 @@
 <template>
-  <Page actionBarHidden="true" class="navPage">
+  <Page actionBarHidden="true" class="navPage" :class="{ 'dark': darkModeToggle }">
+    
     <MDBottomNavigation selectedIndex="0" swipeEnabled="true">
-      <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
       <MDTabStrip>
         <MDTabStripItem>
           <Label class="fas" text.decode="&#xf015;" />
@@ -17,18 +17,17 @@
         </MDTabStripItem>
       </MDTabStrip>
 
-      <!-- The number of TabContentItem components should corespond to the number of TabStripItem components -->
       <MDTabContentItem>
-        <homePage/>
+        <homePage />
       </MDTabContentItem>
       <MDTabContentItem>
         <recyclePage />
       </MDTabContentItem>
       <MDTabContentItem>
-        <rankingPage/>
+        <rankingPage />
       </MDTabContentItem>
       <MDTabContentItem>
-        <accountPage :userid="userData.id" v-if="userData != ''"/>
+        <accountPage :userid="userData.id" v-if="userData != ''" />
       </MDTabContentItem>
     </MDBottomNavigation>
   </Page>
@@ -45,20 +44,26 @@ import accountPage from './pages/accountPage.vue';
 import recyclePage from './pages/recyclePage.vue';
 import homePage from './pages/homePage.vue';
 import rankingPage from './pages/rankingPage.vue';
+
+
 export default Vue.extend({
   data() {
     return {
       userData: '',
+      darkModeToggle: AppSettings.getBoolean("darkMode")
     };
   },
   mounted() {
     this.userData = JSON.parse(AppSettings.getString('userdata'));
+    setInterval(() => {
+      this.darkModeToggle = AppSettings.getBoolean("darkMode");
+    }, 200)
   },
   components: {
     accountPage,
     recyclePage,
     homePage,
-    rankingPage
+    rankingPage,
   }
 });
 

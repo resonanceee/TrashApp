@@ -6,15 +6,18 @@
       <FlexBoxLayout class="accountStats">
         <StackLayout class="accountStat" style="background-color: rgba(161, 165, 42, 0.226)">
           <Label col="0" text.decode="&#xf1ea;" class="fas"></Label>
-          <Label>{{ userdata.stats.paper.value }}{{ userdata.stats.unit }} of paper</Label>
+          <Label>{{ userdata.stats.paper.value }}{{ userdata.stats.unit }}</Label>
+          <Label>di carta</Label>
         </StackLayout>
         <StackLayout class="accountStat" style="background-color: rgba(42, 147, 165, 0.226)">
           <Label col="0" text.decode="&#xe4c5;" class="fas"></Label>
-          <Label>{{ userdata.stats.plastic.value }}{{ userdata.stats.unit }} of plastic</Label>
+          <Label>{{ userdata.stats.plastic.value }}{{ userdata.stats.unit }}</Label>
+          <Label>di plastica</Label>
         </StackLayout>
         <StackLayout class="accountStat" style="background-color: rgba(165, 42, 42, 0.163)">
           <Label col="0" text.decode="&#xf468;" class="fas"></Label>
-          <Label>{{ userdata.stats.cardboard.value }}{{ userdata.stats.unit }} of cardboard</Label>
+          <Label>{{ userdata.stats.cardboard.value }}{{ userdata.stats.unit }}</Label>
+          <Label>di cartone</Label>
         </StackLayout>
       </FlexBoxLayout>
     </FlexboxLayout>

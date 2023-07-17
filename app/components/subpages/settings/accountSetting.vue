@@ -1,5 +1,5 @@
 <template>
-    <page actionBarHidden="true">
+    <page actionBarHidden="true" :class="{ 'dark': darkModeToggle }">
         <StackLayout>
             <FlexboxLayout class="actionBar">
                 <FlexboxLayout @tap="goBack()" class="goBackIcon">
@@ -44,10 +44,14 @@ export default Vue.extend({
             email: "",
             success: false,
             error: false,
+            darkModeToggle: AppSettings.getBoolean("darkMode")
         }
     },
     mounted() {
         this.getSettings();
+        setInterval(() => {
+            this.darkModeToggle = AppSettings.getBoolean("darkMode");
+        }, 200)
     },
     methods: {
         goBack() {

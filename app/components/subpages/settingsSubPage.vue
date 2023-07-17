@@ -1,5 +1,5 @@
 <template>
-    <page actionBarHidden="true">
+    <page actionBarHidden="true" :class="{'dark': darkModeToggle}">
         <StackLayout>
             <FlexboxLayout class="actionBar">
                 <FlexboxLayout @tap="goBack()" class="goBackIcon">
@@ -13,7 +13,8 @@
             </FlexboxLayout>
             <FlexboxLayout class="option" @tap="toggleDarkMode">
                 <Label>Modalitá scura</Label>
-                <Switch :checked="darkModeToggle" style="margin-right: 0;" class="optionIcon" @tap="toggleDarkMode"></Switch>
+                <Label v-if="darkModeToggle" class="optionIcon">ON</Label>
+                <Label v-else class="optionIcon">OFF</Label>
             </FlexboxLayout>
             <FlexboxLayout class="option" @tap="logOut()" style="color: rgb(255, 100, 100);">
                 <Label style="color: rgb(255, 100, 100);">Log out</Label>
@@ -35,11 +36,8 @@ export default Vue.extend({
         }
     },
     mounted() {
-        if(AppSettings.getBoolean("darkMode")) {
-            this.darkModeToggle = true;
-        } else {
-            this.darkModeToggle = false;
-        }
+        this.darkModeToggle = AppSettings.getBoolean("darkMode");
+        
     },
     methods: {
         goBack() {
