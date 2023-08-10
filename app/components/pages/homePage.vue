@@ -2,20 +2,11 @@
   <StackLayout>
     <Label class="homeTitle">Benvenuto, {{ userdata.name }}</Label>
     <StackLayout class="homeChart">
-      <Label class="chartTitle">CO2 risparmiata questa settimana</Label>
-      <Label class="chartUnit">Unitá di misura: Kg</Label>
+      <Label class="chartTitle">Questa settimana hai riciclato</Label>
+      <Label class="chartTitle">{{ calculatedTotalAmount }}g di rifiuti</Label>
       <RadCartesianChart>
         <CategoricalAxis v-tkCartesianHorizontalAxis />
-        <LinearAxis v-tkCartesianVerticalAxis label="test"/>
-        <LineSeries v-tkCartesianSeries :items="chartDataCO2" categoryProperty="Day" valueProperty="Amount" />
-      </RadCartesianChart>
-    </StackLayout>
-    <StackLayout class="homeChart">
-      <Label class="chartTitle">Massa risparmiata questa settimana</Label>
-      <Label class="chartUnit">Unitá di misura: Kg</Label>
-      <RadCartesianChart>
-        <CategoricalAxis v-tkCartesianHorizontalAxis />
-        <LinearAxis v-tkCartesianVerticalAxis label="test"/>
+        <LinearAxis v-tkCartesianVerticalAxis label="test" />
         <LineSeries v-tkCartesianSeries :items="chartDataMASS" categoryProperty="Day" valueProperty="Amount" />
       </RadCartesianChart>
     </StackLayout>
@@ -32,28 +23,15 @@ export default Vue.extend({
   data() {
     return {
       userdata: '',
-      chartDataCO2: [
-        { Day: 'Lun', Amount: 29 },
-        { Day: 'Mar', Amount: 32 },
-        { Day: 'Mer', Amount: 33 },
-        { Day: 'Gio', Amount: 12 },
-        { Day: 'Ven', Amount: 34 },
-        { Day: 'Sab', Amount: 22 },
-        { Day: 'Dom', Amount: 22 }
-      ],
-      chartDataMASS: [
-        { Day: 'Lun', Amount: 46 },
-        { Day: 'Mar', Amount: 32 },
-        { Day: 'Mer', Amount: 34 },
-        { Day: 'Gio', Amount: 12 },
-        { Day: 'Ven', Amount: 65 },
-        { Day: 'Sab', Amount: 32 },
-        { Day: 'Dom', Amount: 20 }
-      ]
+      chartDataMASS: [],
+      calculatedTotalAmount: 0
     };
   },
   mounted() {
     this.userdata = JSON.parse(AppSettings.getString('userdata'));
+    setInterval(() => {
+      this.getGraphData();
+    }, 200)
   },
   methods: {
     logOut() {
@@ -62,6 +40,22 @@ export default Vue.extend({
       this.$navigateTo(loaderPage, {
         clearHistory: true
       });
+    },
+    async getGraphData() {
+      Http.request({
+        "url": "http://192.168.1.15:8080/g",
+        method: "GET",
+        headers: {
+          auth: AppSettings.getString("token")
+        }
+      }).then((res: HttpResponse) => {
+        this.chartDataMASS = [];
+        this.chartDataMASS = JSON.parse(res.content);
+        this.calculatedTotalAmount = 0;
+        for (const entry of this.chartDataMASS) {
+          this.calculatedTotalAmount += entry.Amount;
+        }
+      })
     }
   }
 });

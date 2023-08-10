@@ -50,13 +50,13 @@
                 <Label>Scatola della pizza • 65g</Label>
               </FlexboxLayout>
             </FlexBoxLayout>
-            <Label class="recycleSection" @tap="selectObject('Altro', 0, 3)">Altro</Label>
+            <!-- <Label class="recycleSection" @tap="selectObject('Altro', 0, 3)">Altro</Label>
             <FlexBoxLayout class="item other">
               <Label text.decode="&#xf059;" class="fas"></Label>
               <FlexboxLayout class="itemDescr">
                 <Label>Altro</Label>
               </FlexboxLayout>
-            </FlexBoxLayout>
+            </FlexBoxLayout> -->
           </StackLayout>
         </ScrollView>
       </StackLayout>
@@ -86,7 +86,7 @@
           </FlexboxLayout>
           <FlexboxLayout class="confirmButton" @tap="pushRecycle()">
             <Label v-if="!loading && !success">Conferma</Label>
-            <ActivityIndicator busy="true" v-else-if="loading" style="color: white;" />
+            <ActivityIndicator busy="true" v-else-if="loading" style="color: black;" />
             <Label text.decode="&#xf00c;" class="fas" v-else-if="success" style="font-size: 22;"></Label>
           </FlexboxLayout>
         </StackLayout>
