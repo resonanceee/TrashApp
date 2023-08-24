@@ -1,0 +1,25 @@
+page {
+  background-color: var(--primary);
+}
+
+* {
+    color: var(--text);
+}
+
+.content {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+.logo {
+    width: 40%;
+    max-width: 600px;
+}
+
+.logoText {
+    text-align: center;
+    font-size: 42;
+    font-weight: bold;
+}

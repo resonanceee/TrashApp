@@ -1,43 +1,65 @@
 <template>
-  <Page>
-    <ActionBar>
-      <Label text="Home"/>
-    </ActionBar>
+  <Page actionBarHidden="true" class="navPage">
+    <MDBottomNavigation selectedIndex="0" swipeEnabled="true">
+      <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
+      <MDTabStrip>
+        <MDTabStripItem>
+          <Label class="fas" text.decode="&#xf015;" />
+        </MDTabStripItem>
+        <MDTabStripItem>
+          <Label text.decode="&#xf1b8;" class="fas"></Label>
+        </MDTabStripItem>
+        <MDTabStripItem>
+          <Label text.decode="&#xe561;" class="fas"></Label>
+        </MDTabStripItem>
+        <MDTabStripItem>
+          <Label text.decode="&#xf007;" class="fas"></Label>
+        </MDTabStripItem>
+      </MDTabStrip>
 
-    <GridLayout>
-      <Label class="info">
-        <FormattedString>
-          <Span class="fas" text.decode="&#xf135; "/>
-          <Span :text="message"/>
-        </FormattedString>
-      </Label>
-    </GridLayout>
+      <!-- The number of TabContentItem components should corespond to the number of TabStripItem components -->
+      <MDTabContentItem>
+        <homePage/>
+      </MDTabContentItem>
+      <MDTabContentItem>
+        <recyclePage />
+      </MDTabContentItem>
+      <MDTabContentItem>
+        <Label>Rankings</Label>
+      </MDTabContentItem>
+      <MDTabContentItem>
+        <accountPage :userid="userData.id" v-if="userData != ''"/>
+      </MDTabContentItem>
+    </MDBottomNavigation>
   </Page>
 </template>
 
 <script lang="ts">
-  import Vue from "nativescript-vue";
+import Vue from 'nativescript-vue';
+import BottomNavigation from '@nativescript-community/ui-material-bottom-navigation/vue';
 
-  export default Vue.extend({
-    computed: {
-      message() {
-        return "Blank {N}-Vue app";
-      }
-    }
-  });
+import * as AppSettings from '@nativescript/core/application-settings';
+
+/* import account pages */
+import accountPage from './pages/accountPage.vue';
+import recyclePage from './pages/recyclePage.vue';
+import homePage from './pages/homePage.vue';
+
+export default Vue.extend({
+  data() {
+    return {
+      userData: '',
+    };
+  },
+  mounted() {
+    this.userData = JSON.parse(AppSettings.getString('userdata'));
+  },
+  components: {
+    accountPage,
+    recyclePage,
+    homePage
+  }
+});
+
+Vue.use(BottomNavigation);
 </script>
-
-<style scoped lang="scss">
-  @import '@nativescript/theme/scss/variables/blue';
-
-  // Custom styles
-  .fas {
-    @include colorize($color: accent);
-  }
-
-  .info {
-    font-size: 20;
-    horizontal-align: center;
-    vertical-align: center;
-  }
-</style>

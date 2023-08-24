@@ -1,0 +1,52 @@
+/* title */
+
+.recycleTitle {
+  font-size: 38;
+  font-weight: bold;
+}
+
+.recycleSection {
+  font-size: 26;
+}
+
+/* content */
+.content {
+  padding: 30px;
+}
+
+/* item */
+.item {
+  background-color: var(--primary);
+  padding: 50px;
+  border-radius: 15px;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+
+.item > .fas {
+  margin-right: 50px;
+}
+
+.itemDescr {
+  font-size: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* colors */
+.paper {
+  background-color: rgba(161, 165, 42, 0.226);
+}
+
+.plastic {
+  background-color: rgba(42, 147, 165, 0.226);
+}
+
+.cardboard {
+  background-color: rgba(165, 42, 42, 0.163);
+}
+
+.other {
+  background-color: rgba(136, 136, 136, 0.163);
+}

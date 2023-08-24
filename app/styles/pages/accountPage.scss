@@ -1,0 +1,59 @@
+.accountCard {
+  background-color: var(--secondary);
+  padding: 25px;
+  margin: 25px;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.07);
+  flex-direction: column;
+}
+
+.accountName {
+  font-size: 30;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* stats */
+.accountStats {
+  margin-top: 20;
+  margin-bottom: 20;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.accountStat {
+  text-align: center;
+  padding: 7;
+  border-radius: 15px;
+  width: 30%;
+  min-width: 60px;
+  font-size: 12;
+  white-space: normal;
+}
+
+.accountStat > .fas {
+  font-size: 25;
+}
+
+/* action button */
+.actionButton {
+  background-color: var(--info);
+  padding: 25px;
+  margin: 25px;
+  margin-top: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.07);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 18;
+  border-width: 5px;
+  border-color: var(--primary);
+}
+
+.actionButton.gray {
+  background-color: #9595956e;
+  border-color: #aaaaaa6e;
+}
