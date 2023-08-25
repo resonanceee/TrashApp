@@ -3,5 +3,30 @@
 .homeTitle {
   font-size: 26;
   margin: 30px;
+  margin-bottom: 0;
   font-weight: bold;
+}
+
+/* chart */
+.homeChart {
+  background-color: var(--secondary);
+  padding: 25px;
+  margin: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.07);
+  flex-direction: column;
+  height: 700px;
+}
+
+.chartTitle {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chartUnit {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
 }
