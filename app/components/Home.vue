@@ -25,7 +25,7 @@
         <recyclePage />
       </MDTabContentItem>
       <MDTabContentItem>
-        <rankingPage/>
+        <Label>Rankings</Label>
       </MDTabContentItem>
       <MDTabContentItem>
         <accountPage :userid="userData.id" v-if="userData != ''"/>
@@ -44,7 +44,7 @@ import * as AppSettings from '@nativescript/core/application-settings';
 import accountPage from './pages/accountPage.vue';
 import recyclePage from './pages/recyclePage.vue';
 import homePage from './pages/homePage.vue';
-import rankingPage from './pages/rankingPage.vue';
+
 export default Vue.extend({
   data() {
     return {
@@ -57,8 +57,7 @@ export default Vue.extend({
   components: {
     accountPage,
     recyclePage,
-    homePage,
-    rankingPage
+    homePage
   }
 });
 
