@@ -1,0 +1,89 @@
+/* title */
+
+.rankingTitle {
+  font-size: 38;
+  font-weight: bold;
+}
+
+.rankingSection {
+  font-size: 18;
+}
+
+/* content */
+.content {
+  padding: 30px;
+}
+
+/* lb type chooser */
+.lbTypes {
+  width: 100%;
+  background: rgba(61, 61, 61, 0.072);
+  padding: 10px;
+  border-radius: 15px;
+  justify-content: space-between;
+}
+
+.lbType {
+  width: 49%;
+  margin: 20px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.lbType.active {
+  background: rgba(61, 61, 61, 0.115);
+}
+
+/* lb container */
+.lbContainer {
+  width: 100%;
+  background: rgba(61, 61, 61, 0.072);
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.lbLegend {
+  font-size: 18px;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+.lbLegend > * {
+  text-align: center;
+}
+
+.lbPlayer {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+  background-color: rgba(61, 61, 61, 0.091);
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.lbPlayer > * {
+  text-align: center;
+}
+
+.lbRank {
+  width: 200px;
+  font-weight: bold;
+}
+
+.lbName {
+  width: 300px;
+}
+
+.lbStat {
+  width: 200px;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+
