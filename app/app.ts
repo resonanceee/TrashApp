@@ -10,5 +10,8 @@ Vue.config.silent = !__DEV__
 Vue.use(RadChart);
 
 new Vue({
-  render: (h) => h('frame', [h(Loader)]),
-}).$start()
+  render: (h) => h('frame', {
+    class: 'dark',
+  }, [h(Loader)]),
+}).$start();
+

@@ -1,28 +1,28 @@
-@import "@nativescript/theme/core";
-@import "@nativescript/theme/default";
+@import '@nativescript/theme/core';
+@import '@nativescript/theme/default';
 
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 
 // Font icon class
 .fab {
-  font-family: "Font Awesome 5 Brands", "fa-brands-400";
+  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
   font-weight: 400;
 }
 
 .fas {
-  font-family: "Font Awesome 5 Free", "fa-solid-900";
+  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
   font-weight: 900;
 }
 
 .far {
-  font-family: "Font Awesome 5 Free", "fa-regular-400";
+  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
   font-weight: 400;
 }
 
 * {
   color: var(--text);
-  font-family: "Rubik", "rubik-regular";
+  font-family: 'Rubik', 'rubik-regular';
 }
 
 /* variables */
@@ -30,17 +30,36 @@
   --text: #080e07;
   --background: #e6f2e3;
   --primary: #a0cc93;
-  --secondary: #e0efdc;
+  --secondary: #daead6;
   --accent: #65ad52;
   --info: #a9e1ad;
   --danger: #ff6767;
 }
 
-// --text: #e6f2e3;
-// --background: #080e07;
-// --primary: #a0cc93;
-// --secondary: #142310;
-// --accent: #c2deba;
+.ns-root .dark {
+  --text: #e6f2e3;
+  --background: #080e07;
+  --primary: #7dab7a;
+  --secondary: #151c14;
+  --accent: #3a7b31;
+  --info: #80b080;
+  --danger: #d94f4f;
+}
+//LIGHT --text: #080e07;
+//   --background: #e6f2e3;
+//   --primary: #a0cc93;
+//   --secondary: #daead6;
+//   --accent: #65ad52;
+//   --info: #a9e1ad;
+//   --danger: #ff6767;
+
+//DARK --text: #e6f2e3;
+//   --background: #080e07;
+//   --primary: #7dab7a;
+//   --secondary: #151c14;
+//   --accent: #3a7b31;
+//   --info: #80b080;
+//   --danger: #d94f4f;
 
 /* bottom nav bar */
 MDTabStripItem > * {
@@ -57,6 +76,7 @@ MDTabStrip {
   background-color: var(--background);
 }
 
-.navPage, MDTabContentItem {
+.navPage,
+MDTabContentItem {
   background-color: var(--background);
 }

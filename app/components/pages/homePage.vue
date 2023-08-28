@@ -19,7 +19,6 @@
         <LineSeries v-tkCartesianSeries :items="chartDataMASS" categoryProperty="Country" valueProperty="Amount" />
       </RadCartesianChart>
     </StackLayout>
-    <Button @tap="logOut">Log out</Button>
   </StackLayout>
 </template>
 

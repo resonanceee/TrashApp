@@ -1,6 +1,6 @@
 <template>
   <StackLayout>
-    <ActivityIndicator busy="true" v-if="loading" style="margin-top: 100px;"/>
+    <ActivityIndicator busy="true" v-if="loading" style="margin-top: 100px;" />
     <FlexboxLayout class="accountCard" v-if="!loading && !error">
       <Label class="accountName">{{ userdata.name }}</Label>
       <FlexBoxLayout class="accountStats">
@@ -33,6 +33,7 @@
 import { Http, HttpResponse } from '@nativescript/core';
 import Vue from 'vue';
 import * as AppSettings from '@nativescript/core/application-settings';
+import settingsSubPageVue from '../subpages/settingsSubPage.vue';
 export default Vue.extend({
   data() {
     return {
@@ -47,11 +48,13 @@ export default Vue.extend({
   },
   mounted() {
     this.localUserData = JSON.parse(AppSettings.getString('userdata'));
-    this.getUserData();
+    setInterval(() => {
+      this.getUserData()
+    }, 2000);
+
   },
   methods: {
     async getUserData() {
-      console.log('requesting...');
       Http.request({
         url: `http://192.168.1.15:8080/u/${this.userid}`,
         method: 'GET',
@@ -74,8 +77,12 @@ export default Vue.extend({
         }
       );
     },
-    async addFriend() {},
-    goToSettings() {}
+    async addFriend() { },
+    goToSettings() {
+      this.$navigateTo(settingsSubPageVue, {
+        transition: { name: 'slideTop' }
+      })
+    }
   }
 });
 </script>
