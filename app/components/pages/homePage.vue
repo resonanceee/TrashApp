@@ -7,7 +7,7 @@
       <RadCartesianChart>
         <CategoricalAxis v-tkCartesianHorizontalAxis />
         <LinearAxis v-tkCartesianVerticalAxis label="test"/>
-        <LineSeries v-tkCartesianSeries :items="chartDataCO2" categoryProperty="Country" valueProperty="Amount" />
+        <LineSeries v-tkCartesianSeries :items="chartDataCO2" categoryProperty="Day" valueProperty="Amount" />
       </RadCartesianChart>
     </StackLayout>
     <StackLayout class="homeChart">
@@ -16,7 +16,7 @@
       <RadCartesianChart>
         <CategoricalAxis v-tkCartesianHorizontalAxis />
         <LinearAxis v-tkCartesianVerticalAxis label="test"/>
-        <LineSeries v-tkCartesianSeries :items="chartDataMASS" categoryProperty="Country" valueProperty="Amount" />
+        <LineSeries v-tkCartesianSeries :items="chartDataMASS" categoryProperty="Day" valueProperty="Amount" />
       </RadCartesianChart>
     </StackLayout>
   </StackLayout>
@@ -33,22 +33,22 @@ export default Vue.extend({
     return {
       userdata: '',
       chartDataCO2: [
-        { Country: 'Lun', Amount: 29 },
-        { Country: 'Mar', Amount: 32 },
-        { Country: 'Mer', Amount: 33 },
-        { Country: 'Gio', Amount: 12 },
-        { Country: 'Ven', Amount: 34 },
-        { Country: 'Sab', Amount: 22 },
-        { Country: 'Dom', Amount: 22 }
+        { Day: 'Lun', Amount: 29 },
+        { Day: 'Mar', Amount: 32 },
+        { Day: 'Mer', Amount: 33 },
+        { Day: 'Gio', Amount: 12 },
+        { Day: 'Ven', Amount: 34 },
+        { Day: 'Sab', Amount: 22 },
+        { Day: 'Dom', Amount: 22 }
       ],
       chartDataMASS: [
-        { Country: 'Lun', Amount: 46 },
-        { Country: 'Mar', Amount: 32 },
-        { Country: 'Mer', Amount: 34 },
-        { Country: 'Gio', Amount: 12 },
-        { Country: 'Ven', Amount: 65 },
-        { Country: 'Sab', Amount: 32 },
-        { Country: 'Dom', Amount: 20 }
+        { Day: 'Lun', Amount: 46 },
+        { Day: 'Mar', Amount: 32 },
+        { Day: 'Mer', Amount: 34 },
+        { Day: 'Gio', Amount: 12 },
+        { Day: 'Ven', Amount: 65 },
+        { Day: 'Sab', Amount: 32 },
+        { Day: 'Dom', Amount: 20 }
       ]
     };
   },

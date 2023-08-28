@@ -143,14 +143,14 @@ export default Vue.extend({
       if (this.loading) {
         return
       }
-      if (this.selectedObject.ammount <= 0) {
-        this.selectedObject.ammount = 0
+      if (this.selectedObject.ammount <= 1) {
+        this.selectedObject.ammount = 1
       } else {
         this.selectedObject.ammount -= 1;
       }
     },
     async pushRecycle() {
-      if (this.loading || this.selectedObject.ammount <= 0) {
+      if (this.loading || this.selectedObject.ammount <= 1) {
         return
       }
 

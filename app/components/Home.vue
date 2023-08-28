@@ -1,6 +1,5 @@
 <template>
   <Page actionBarHidden="true" class="navPage" :class="{ 'dark': darkModeToggle }">
-    
     <MDBottomNavigation selectedIndex="0" swipeEnabled="true">
       <MDTabStrip>
         <MDTabStripItem>
