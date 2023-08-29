@@ -68,7 +68,7 @@ export default Vue.extend({
     },
     async getLeaderboardData() {
       Http.request({
-        url: "http://192.168.1.15:8080/lb",
+        url: "https://api.trashtracer.lol/lb",
         method: "GET",
         headers: {
           auth: AppSettings.getString("token"),

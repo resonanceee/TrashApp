@@ -59,7 +59,7 @@ export default Vue.extend({
   methods: {
     async getUserData() {
       Http.request({
-        url: `http://192.168.1.15:8080/u/${this.userid}`,
+        url: `https://api.trashtracer.lol/u/${this.userid}`,
         method: 'GET',
         headers: {
           auth: AppSettings.getString('token')
